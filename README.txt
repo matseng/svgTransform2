@@ -14,6 +14,9 @@ Initial setup:
   $ cd node_modules/protractor/bin/
   $ ./webdriver-manager update
 
+Other:
+  - Install Java Dev Kit to run Selenium server
+
 Unit tests:
   $ ./node_modules/karma/bin/karma start  // same as ./node_modules/karma/bin/karma start karma.conf.js
 
@@ -21,3 +24,7 @@ e2e tests:
   $ python -m SimpleHTTPServer 8080  //hard coded in e2eSpec.js
   $ ./node_modules/.bin/webdriver-manager start  //starts the Selenium server, but requires Java Dev Kit (JDK)
   $ ./node_modules/protractor/bin/protractor protractor.conf.js
+
+TODO:
+  - add tests for each module (as opposed to in a test folder)
+  - use grunt to concat tests from different modules and then run karma

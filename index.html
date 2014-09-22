@@ -8,10 +8,15 @@
   <div ng-controller='NavigationController'>
     <button ng-click='clicked()'>Translate demo!</button>
     <svg draggable nav> 
-      <g id='canvas'>
-        <g transform="translate({{x}},{{y}})" class='helloWorld'>
-          <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
-          <text class='helloWorld'>Hello World</text>
+      <g id='canvas' transform="translate(0,0)">
+        <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
+          <text class='helloWorld'>Hello World 1</text>
+        </g>
+        <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
+          <text class='helloWorld'>Hello World 2</text>
+        </g>
+        <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
+          <text class='helloWorld'>Hello World 3</text>
         </g>
       <g>
     </svg>
