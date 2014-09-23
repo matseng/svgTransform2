@@ -8,7 +8,7 @@
   <div ng-controller='NavigationController'>
     <button ng-click='clicked()'>Translate demo!</button>
     <svg draggable nav> 
-      <g id='canvas' transform="translate(0,0)">
+      <g id='canvas' transform="scale(1) translate(0,0)">
         <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
           <text class='helloWorld'>Hello World 1</text>
         </g>
@@ -18,7 +18,7 @@
         <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
           <text class='helloWorld'>Hello World 3</text>
         </g>
-      <g>
+      </g>
     </svg>
   </div>
   <script src='bower_components/angular/angular.js'></script>
