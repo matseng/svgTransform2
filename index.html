@@ -6,7 +6,7 @@
 </head>
 <body>
   <div ng-controller='NavigationController'>
-    <button ng-click='clicked()'>Translate demo!</button>
+    <!-- <button ng-click='clicked()'>Translate demo!</button> -->
     <svg draggable nav> 
       <g id='canvas' transform="scale(1) translate(0,0)">
         <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
@@ -26,5 +26,6 @@
   <script src='app.js'></script>
   <script src='draggable.js'></script>
   <script src='src/navigation/navigation.js'></script>
+  <script src='src/navigation/navService.js'></script>
 </body>
 </html>

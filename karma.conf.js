@@ -18,14 +18,16 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js', 
       '*.js',
+      'src/navigation/navigation.js',
       'src/**/*.js',
-      'tests/appSpec.js'
+      'tests/*Spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-        'protractor.conf.js'
+        'protractor.conf.js',
+        'tests/e2eSpec.js'
     ],
 
 

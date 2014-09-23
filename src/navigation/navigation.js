@@ -2,7 +2,7 @@
 angular.module('nav', []);
 
 angular.module('nav')
-  .directive('nav', [function() {
+  .directive('nav', ['navService', function(navService) {
     return {
       restrict: 'A',
       link: link
@@ -33,6 +33,7 @@ angular.module('nav')
         }
       });
 
+      // var translateX = 0, translateY = 0;
       function translate(event) {
           // console.log(canvasElement);
         
@@ -59,6 +60,8 @@ angular.module('nav')
 
       function getTransformString(scale, tx, ty) {
         return 'scale(' + scale + ') translate(' + tx + ',' + ty + ')';
+        var matrix = new Array(scale, 0, 0, scale, tx, ty);
+        return 'matrix(' + matrix.join(' ') + ')'; 
       };
 
       function reset() {
@@ -66,20 +69,37 @@ angular.module('nav')
         dragStarted = 0;
       };
 
-      var offsetX, offsetY;
-      var mouseX, mouseY;
-
       element.on('mousewheel', function(event) {
         // console.log(event);
         // debugger
-        offsetX = canvasElement.getBoundingClientRect().left * zoom;
-        offsetY = canvasElement.getBoundingClientRect().top * zoom;
+        // var windowOffsetX = canvasElement.getBoundingClientRect().left;
+        // var windowOffsetY = canvasElement.getBoundingClientRect().top;
+        // var mouseX = event.x;
+        // var mouseY = event.y;
+        // var globalOffsetX = windowOffsetX - translateX
+        
+        var pt = {
+          x: canvasElement.getBoundingClientRect().left,
+          y: canvasElement.getBoundingClientRect().top
+        };
+        console.log(pt);
+
+        var prevZoom = zoom;
+
         if(event.wheelDeltaY < 0) {
-          zoom = zoom * 1.1;
+          zoom = zoom * 1.05;
         }
         else {
-          zoom = zoom * 0.9;
+          zoom = zoom * 0.95;
         }
+
+
+        translateX = translateX - navService.translateCenter(pt.x, prevZoom, 0, event.x, zoom);
+        translateY = translateY - navService.translateCenter(pt.y, prevZoom, 0, event.y, zoom);
+
+        // var centerX = -1 * offsetX * zoom + mouseX * zoom + (offsetX - mouseX);
+        // var centerY = -1 * offsetY * zoom + mouseY * zoom + (offsetY - mouseY);
+        
         // canvasElement.transform.baseVal[0].matrix.a = canvasElement.transform.baseVal[0].matrix.d = zoom;
         // var newOffsetX = offsetX * zoom;
         // var newOffsetY = offsetY * zoom;
@@ -89,7 +109,6 @@ angular.module('nav')
         // var initialTy = translateY + offsetY;
         
 
-        // mouseX = event.x;
         // mouseY = event.y;
         // var globalMouseX = (mouseX - translateX) * 1/zoom;
         // var globalMouseY = (mouseY - translateY) * 1/zoom;
@@ -98,7 +117,13 @@ angular.module('nav')
         // translateY = (translateY - offsetY) * zoom;
         // canvasElement.setAttribute('transform', getTransformString(zoom, canvasElement.transform.baseVal[0].matrix.e - offsetX, canvasElement.transform.baseVal[0].matrix.f - offsetY));
         // canvasElement.setAttribute('transform', getTransformString(zoom, deltaOffsetX, deltaOffsetY));
+        // canvasElement.setAttribute('transform', getTransformString(zoom, centerX, centerY));
         canvasElement.setAttribute('transform', getTransformString(zoom, translateX, translateY));
+        // canvasElement.transform.baseVal[0].matrix.e = translateX;
+        // canvasElement.transform.baseVal[0].matrix.f = translateY;
+        // canvasElement.transform.baseVal[0].matrix.a = zoom;
+        // canvasElement.transform.baseVal[0].matrix.d = zoom;
+          
 
       });
 
