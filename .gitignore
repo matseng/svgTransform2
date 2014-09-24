@@ -1,4 +1,6 @@
 node_modules
-bower_components
 
+bower_components/*
+!bower_components/angular
+bower_components/angular/*
 !bower_components/angular/angular.js
