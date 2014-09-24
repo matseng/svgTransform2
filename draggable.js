@@ -26,7 +26,6 @@ angular.module('draggable')
           nodeX = node.transform.baseVal[0].matrix.e;
           nodeY = node.transform.baseVal[0].matrix.f;
           element.bind('mousemove', ondrag);
-          console.log(event);
         }
       });
       
