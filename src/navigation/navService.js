@@ -24,4 +24,12 @@ angular.module('nav')
       return transform.scale;
     }
 
+    this.getX = function() {
+      return transform.tx;
+    }
+    
+    this.getY = function() {
+      return transform.ty;
+    }
+
   }]);
