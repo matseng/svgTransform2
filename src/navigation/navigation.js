@@ -69,11 +69,10 @@ angular.module('nav')
           zoom = zoom * 0.95;
         }
 
-        navService.setTransform(zoom);
-
         translateX = translateX + navService.translateCenter(pt.x, prevZoom, 0, event.x, zoom);
         translateY = translateY + navService.translateCenter(pt.y, prevZoom, 0, event.y, zoom);
         canvasElement.setAttribute('transform', getTransformString(zoom, translateX, translateY));
+        navService.setTransform(zoom, translateX, translateY);
 
       });
 
