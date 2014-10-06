@@ -1,4 +1,4 @@
-$ npm install protractor  // Install protractor locally if not already installed globally. Global install may require sudo
+$ npm install protractor --save // Install protractor locally if not already installed globally. Global install may require sudo
 
 Initial setup:
   $ bower init
