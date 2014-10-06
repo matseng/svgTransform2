@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "karma-chrome-launcher": "^0.1.4",
-    "karma-jasmine": "^0.1.5"
+    "karma-jasmine": "^0.1.5",
+    "protractor": "^1.3.1"
   }
 }

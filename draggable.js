@@ -19,7 +19,7 @@ angular.module('draggable')
       
       element.on('mousedown', function(event) {
         var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
-        if(target.className.baseVal === 'helloWorld') {
+        if(target.tagName === 'text') {
           mouseX = event.x;
           mouseY = event.y;
           node = event.target.parentNode;

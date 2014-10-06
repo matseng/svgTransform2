@@ -11,26 +11,40 @@
 //   });
 // });
 
+// Selenium docs: https://code.google.com/p/selenium/wiki/WebDriverJs
+// http://angular.github.io/protractor/#/api?view=webdriver.WebDriver.prototype.actions (but doest...)
+// https://code.google.com/p/selenium/source/browse/javascript/webdriver/actionsequence.js
+
 describe('nav module', function(){
   describe('my first nav button', function(){
-    // go to localhost of webpage
-    //get button
-    //click button (with an 'it' block)
-    //new it block, expect incremented by 100
     it('navigate to page', function() {
       browser.get('http://localhost:8080/');
     });
 
-    it('should get the nav button and click it', function() {
+    xit('should get the nav button and click it', function() {
       element(by.css('button')).click();
     });
 
-    it('should ', function() {
+    xit('should... ', function() {
       element(by.css('.helloWorld')).getAttribute('transform')
       .then(function(data){
-        expect(data).toEqual("translate(140,160)");
+        expect(data).toEqual("translate(120,160)");
       });
+    });
 
+    it('should get the right global coordinate from a mouse coordinate', function() {
+      // clickAt(element(by.css('svg'))
+      var actions = browser.driver.actions();
+      actions.mouseMove(element(by.css('svg')), {x:200,y:200})
+        .click()
+        .perform();
+        // browser.debugger();  //SAVE and ./node_modules/protractor/bin/protractor protractor.conf.js debug
+    });
+
+    it('should...', function() {
+      element(by.css('.testingNewNote')).isPresent().then(function(bool){
+        expect(bool).toEqual(true);
+      });
     });
   });
 

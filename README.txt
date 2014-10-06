@@ -11,8 +11,10 @@ Initial setup:
   $ touch karma.conf.js
   $ mkdir src
   $ touch app.js
+
+Run this script:
   $ cd node_modules/protractor/bin/
-  $ ./webdriver-manager update
+    $ ./webdriver-manager update
 
 Other:
   - Install Java Dev Kit to run Selenium server
@@ -23,7 +25,8 @@ Unit tests:
 e2e tests:
   $ python -m SimpleHTTPServer 8080  //hard coded in e2eSpec.js
   $ ./node_modules/.bin/webdriver-manager start  //starts the Selenium server, but requires Java Dev Kit (JDK)
-  $ ./node_modules/protractor/bin/protractor protractor.conf.js
+  $ ./node_modules/protractor/bin/protractor protractor.conf.js [OR]
+    $ ./node_modules/protractor/bin/protractor protractor.conf.js debug
 
 TODO:
   - add tests for each module (as opposed to in a test folder)
