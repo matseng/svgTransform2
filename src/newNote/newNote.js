@@ -24,6 +24,7 @@ angular.module('newNote')
           console.log('hello world ', xGlobal, yGlobal, element); 
           var groupEl = document.createElementNS("http://www.w3.org/2000/svg", 'g');
           var newNoteEl = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+          newNoteEl.setAttribute('class', 'testingNewNote');
           groupEl.setAttribute('transform', 'translate(' + xGlobal + ',' + yGlobal + ')');
 
           newNoteEl.textContent = 'Oh happy day';

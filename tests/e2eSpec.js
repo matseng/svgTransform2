@@ -15,8 +15,8 @@
 // http://angular.github.io/protractor/#/api?view=webdriver.WebDriver.prototype.actions (but doest...)
 // https://code.google.com/p/selenium/source/browse/javascript/webdriver/actionsequence.js
 
-describe('nav module', function(){
-  describe('my first nav button', function(){
+describe('Nav Module', function(){
+  describe('first set of tests...', function(){
     it('navigate to page', function() {
       browser.get('http://localhost:8080/');
     });
