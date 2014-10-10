@@ -19,10 +19,10 @@ angular.module('draggable')
       
       element.on('mousedown', function(event) {
         var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
-        if(target.tagName === 'text') {
+        if(target.tagName === 'text' || target.tagName === 'tspan') {
           mouseX = event.x;
           mouseY = event.y;
-          node = event.target.parentNode;
+          node = event.target.parentNode.parentNode;  // TODO: need to select parent g element of note
           nodeX = node.transform.baseVal[0].matrix.e;
           nodeY = node.transform.baseVal[0].matrix.f;
           element.bind('mousemove', ondrag);
