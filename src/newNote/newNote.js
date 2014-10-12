@@ -7,15 +7,15 @@ angular.module('newNote')
       link: link
     };
 
-    var canvasElement = element.children()[0];
+    // var canvasElement = element.children()[0];
     var x, y;
     var xGlobal, yGlobal;
     var target;
     var $canvas;
     
     function link($scope, element, attrs) {
-      $canvas = angular.element(element.find('g')[0]);
-      render.setCanvas($canvas);
+      // $canvas = angular.element(element.find('g')[0]);
+      // render.setCanvas($canvas);
       element.on('click', function(mouse) {
         target = mouse.target || mouse.srcElement;
         if ( target.tagName === 'svg' || target.id === 'canvas' ) {

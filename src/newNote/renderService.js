@@ -4,7 +4,7 @@
 angular.module('newNote')
   .service('render', [function() {
 
-    var $canvas;
+    var $canvas = angular.element(document.getElementById('canvas'));
 
     this.setCanvas = function(canvas) {
       $canvas = canvas;
