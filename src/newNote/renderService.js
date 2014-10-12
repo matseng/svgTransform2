@@ -6,17 +6,17 @@ angular.module('newNote')
 
     var $canvas;
 
-    this.setCanvasElement = function(canvas) {
+    this.setCanvas = function(canvas) {
       $canvas = canvas;
     };
     
     this.append = function(str, xGlobal, yGlobal) {
       var groupEl = document.createElementNS("http://www.w3.org/2000/svg", 'g');
       groupEl.setAttribute('transform', 'translate(' + xGlobal + ',' + yGlobal + ')');
-      var str = 'Oh happy day 1 \n Oh happy day 2 \n Oh Oh Oh happy happy happy day day day 3 3 3';
+      // var str = 'Oh happy day 1 \n Oh happy day 2 \n Oh Oh Oh happy happy happy day day day 3 3 3';
       var textEl = stringToSVGText(str);
       var rectEl = appendRectFromText(groupEl, textEl);
-    }
+    };
 
     function stringToSVGText(str) {
       var strArr = str.split('\n');
