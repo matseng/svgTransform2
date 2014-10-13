@@ -1,5 +1,7 @@
 node_modules
 .DS_Store
+src/load/xmlData
+>>>>>>> 8bd6d0a25f2a486adf2219d80452f4e6106bd496
 
 bower_components/*
 !bower_components/angular
