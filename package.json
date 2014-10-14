@@ -9,11 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "karma": "^0.12.23"
   },
   "devDependencies": {
     "chai": "^1.9.2",
     "jquery": "^2.1.1",
+    "karma": "^0.12.23",
     "karma-chrome-launcher": "^0.1.4",
     "karma-jasmine": "^0.1.5",
     "mocha": "^1.21.5",

@@ -1,6 +1,7 @@
 node_modules
 .DS_store
 src/load/xmlData
+npm-debug.log
 
 bower_components/*
 !bower_components/angular

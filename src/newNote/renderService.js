@@ -19,6 +19,7 @@ angular.module('newNote')
     };
 
     function stringToSVGText(str) {
+      str = str || '';
       var strArr = str.split('\n');
       var textEl = document.createElementNS("http://www.w3.org/2000/svg", 'text');
       textEl.setAttribute('class', 'testingNewNote');

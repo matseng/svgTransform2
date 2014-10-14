@@ -19,15 +19,17 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js', 
       '*.js',
       'src/navigation/navigation.js',
-      'src/**/*.js',
-      'tests/*Spec.js'
+      'src/*/*.js',  // '**' vs '*' ?... I think '**' will traverse throughout the file directory
+      'src/**/*Spec.js',
+      // 'tests/*Spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
         'protractor.conf.js',
-        'tests/e2eSpec.js'
+        'tests/e2eSpec.js',
+        // 'src/xml2json/tests/spec/*.js'
     ],
 
 
