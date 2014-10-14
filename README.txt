@@ -1,4 +1,4 @@
-$ npm install protractor  // Install protractor locally if not already installed globally. Global install may require sudo
+$ npm install protractor --save-dev // Install protractor locally if not already installed globally. Global install may require sudo
 
 Initial setup:
   $ bower init
@@ -15,6 +15,7 @@ Initial setup:
 Run this script:
   $ cd node_modules/protractor/bin/
     $ ./webdriver-manager update
+    (or just $ node_modules/protractor/bin/./webdriver-manager update )
 
 Other:
   - Install Java Dev Kit to run Selenium server
