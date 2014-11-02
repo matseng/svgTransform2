@@ -19,6 +19,10 @@ angular.module('nav')
 
       element.on('mousedown', function(event) {
         var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
+        
+        console.log(target);
+        console.log(target.tagName);
+        console.log(target.id);
         if( target.tagName === 'svg' || target.id === 'canvas' ) {
           mouseInitialX = event.x;
           mouseInitialY = event.y;
@@ -27,30 +31,34 @@ angular.module('nav')
           dragStarted = 1;
           element.bind('mousemove', translate);
           element.bind('mouseup', reset);
+        } else {
+          reset();
         }
       });
 
       function translate(event) {
-        if(event.which === 1 && dragStarted) {
+        var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
+        
+        console.log(target);
+        if(event.which === 1 && dragStarted === 1) {
           deltaX = event.x - mouseInitialX;
           deltaY = event.y - mouseInitialY;
           translateX = canvasInitialX + deltaX / zoom;
           translateY = canvasInitialY + deltaY / zoom;
           canvasElement.setAttribute('transform', getTransformString(zoom, translateX, translateY));
           navService.setTransform(zoom, translateX, translateY);
-
         } else {
           reset();
         }
       };
 
-      function getTransformString(scale, tx, ty) {
-        return 'scale(' + scale + ') translate(' + tx + ',' + ty + ')';
-      };
-
       function reset() {
         element.unbind('mousemove', translate);
         dragStarted = 0;
+      };
+
+      function getTransformString(scale, tx, ty) {
+        return 'scale(' + scale + ') translate(' + tx + ',' + ty + ')';
       };
 
       element.on('mousewheel', function(event) {

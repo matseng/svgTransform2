@@ -19,15 +19,27 @@ angular.module('draggable')
       
       element.on('mousedown', function(event) {
         var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
-        if(target.tagName === 'text' || target.tagName === 'tspan') {
+        console.log(target.tagName);
+        if(target.tagName === 'text' || target.tagName === 'tspan' || target.tagName === 'rect') {
           mouseX = event.x;
           mouseY = event.y;
-          node = event.target.parentNode.parentNode;  // TODO: need to select parent g element of note
+          // node = event.target.parentNode.parentNode;  // TODO: need to select parent g element of note
+          node = findParentGroup(target);
+          console.log('node: ', node);
           nodeX = node.transform.baseVal[0].matrix.e;
           nodeY = node.transform.baseVal[0].matrix.f;
           element.bind('mousemove', ondrag);
+        } else {
+          reset();
         }
       });
+
+      function findParentGroup(node) {
+        if(node.parentNode.tagName === 'g') {
+          return node.parentNode;
+        }
+        return findParentGroup(node.parentNode);
+      };
       
       function ondrag(event) {
         if(event.which === 1 && node) {

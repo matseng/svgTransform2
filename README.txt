@@ -31,4 +31,4 @@ e2e tests:
 
 TODO:
   - add tests for each module (as opposed to in a test folder)
-  - use grunt to concat tests from different modules and then run karma
+  - use grunt or browserify to concat tests from different modules and then run karma

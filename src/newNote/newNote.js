@@ -12,13 +12,18 @@ angular.module('newNote')
     var xGlobal, yGlobal;
     var target;
     var $canvas;
-    
+    var mousedownTime;
+    var clickInterval;
     function link($scope, element, attrs) {
       // $canvas = angular.element(element.find('g')[0]);
       // render.setCanvas($canvas);
-      element.on('click', function(mouse) {
+      element.on('mousedown', function() {
+        mousedownTime = new Date().getTime();
+      });
+      element.on('mouseup', function(mouse) {
+        clickInterval = new Date().getTime() - mousedownTime;
         target = mouse.target || mouse.srcElement;
-        if ( target.tagName === 'svg' || target.id === 'canvas' ) {
+        if ( (target.tagName === 'svg' || target.id === 'canvas') && clickInterval < 300) {
           x = mouse.x;
           y = mouse.y;
           xGlobal = x / navService.getScale() - navService.getX();
