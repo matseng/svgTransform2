@@ -1,4 +1,4 @@
-angular.module('Navigation', ['draggable', 'nav', 'newNote', 'load']);
+angular.module('Navigation', ['draggable', 'nav', 'newNote', 'load', 'editNote']);
 
 angular.module('Navigation')
   .controller('NavigationController', ['$scope', 'load', 'render', function($scope, load, render) {

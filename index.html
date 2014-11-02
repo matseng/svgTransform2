@@ -7,7 +7,7 @@
 <body>
   <div ng-controller='NavigationController'>
     <!-- <button ng-click='clicked()'>Translate demo!</button> -->
-    <svg draggable nav newnote> 
+    <svg draggable nav newnote edit-note> 
       <g id='canvas' transform="scale(1) translate(0,0)">
         <g transform="translate({{x}},{{y}})" class='helloWorld'> <!-- ng-cloak or inject with directive to avoid html svg error with initial page load prior to angular-->
           <text class='helloWorld'><tspan>Hello World 1</tspan></text>
@@ -32,5 +32,6 @@
   <script src='src/newNote/newNote.js'></script>
   <script src='src/newNote/renderService.js'></script>
   <script src='src/load/loadService.js'></script>
+  <script src='src/editNote/editNote.js'></script>
 </body>
 </html>
