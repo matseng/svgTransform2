@@ -19,10 +19,6 @@ angular.module('nav')
 
       element.on('mousedown', function(event) {
         var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
-        
-        console.log(target);
-        console.log(target.tagName);
-        console.log(target.id);
         if( target.tagName === 'svg' || target.id === 'canvas' ) {
           mouseInitialX = event.x;
           mouseInitialY = event.y;
@@ -38,8 +34,6 @@ angular.module('nav')
 
       function translate(event) {
         var target = event.target || event.srcElement;  // http://javascript.info/tutorial/bubbling-and-capturing
-        
-        console.log(target);
         if(event.which === 1 && dragStarted === 1) {
           deltaX = event.x - mouseInitialX;
           deltaY = event.y - mouseInitialY;

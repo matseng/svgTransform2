@@ -29,6 +29,7 @@ angular.module('draggable')
           nodeX = node.transform.baseVal[0].matrix.e;
           nodeY = node.transform.baseVal[0].matrix.f;
           element.bind('mousemove', ondrag);
+          element.bind('mouseup', reset);
         } else {
           reset();
         }
@@ -56,9 +57,5 @@ angular.module('draggable')
         element.unbind('mousemove', 'ondrag');
         node = null;
       };
-
-      element.on('mouseup', function() {
-        reset();
-      });
     };
   }]);
