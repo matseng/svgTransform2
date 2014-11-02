@@ -29,6 +29,12 @@ e2e tests:
   $ ./node_modules/protractor/bin/protractor protractor.conf.js [OR]
     $ ./node_modules/protractor/bin/protractor protractor.conf.js debug
 
-TODO:
+TODO (general):
   - add tests for each module (as opposed to in a test folder)
   - use grunt or browserify to concat tests from different modules and then run karma
+
+TODO (features):
+  - Edit notes with 2-click --> textArea
+
+TODO (bug fixes):
+  - turn off window scrolling
