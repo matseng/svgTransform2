@@ -56,7 +56,6 @@ angular.module('nav')
       };
 
       element.on('mousewheel', function(event) {
-        
         var pt = {
           x: canvasElement.getBoundingClientRect().left,
           y: canvasElement.getBoundingClientRect().top
