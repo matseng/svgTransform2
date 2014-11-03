@@ -11,7 +11,8 @@ angular.module('Navigation')
       $scope.y += 100;
     }
 
-    load.forEach(render.append);
+    // load.forEach(render.append);  //SAVE
+
   }]);
 
 
